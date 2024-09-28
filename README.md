@@ -27,11 +27,11 @@ Users should be able to:
 
 ### Screenshot
 
-|            Mobile designed at 375px:             |           Desktop designed at 1440px:            |
-| :----------------------------------------------: | :----------------------------------------------: |
-|     ![](./screenshots/screenshot-mobile.png)     |    ![](./screenshots/screenshot-desktop.png)     |
-|             Mobile (succcess state):             |             Desktop (active state):              |
-| ![](./screenshots/screenshot-mobile-success.png) | ![](./screenshots/screenshot-desktop-active.png) |
+|               Mobile designed at 375px:                |               Desktop designed at 1440px:               |
+| :----------------------------------------------------: | :-----------------------------------------------------: |
+|   ![](./screenshots/screenshot-mobile-completed.png)   |   ![](./screenshots/screenshot-desktop-completed.png)   |
+|                Mobile (active states):                 |                Desktop (active states):                 |
+| ![](./screenshots/screenshot-mobile-active-states.png) | ![](./screenshots/screenshot-desktop-active-states.png) |
 
 ### Links
 
