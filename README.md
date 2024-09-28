@@ -70,6 +70,7 @@ Users should be able to:
 - [Using container size and style queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_size_and_style_queries) - Including [this CSS Tricks guide](https://css-tricks.com/css-container-queries/) and all of [Ahmad Shadeed’s Container Queries Lab](https://lab.ishadeed.com/container-queries/). This guy [Ahmad Shadeed](https://ishadeed.com/about/timeline/) seems pretty cool and worth following.
 - [Link Pseudo-Classes (In Order)](https://css-tricks.com/snippets/css/link-pseudo-classes-in-order/)
 - [Inspect webkit-input-placeholder with developer tools](https://stackoverflow.com/questions/26852922/inspect-webkit-input-placeholder-with-developer-tools) - The trick is to enable 'Show user agent shadow DOM' in the Settings panel of Chrome Developer Tools.
+- [Replacing H1 text with a logo image: best method for SEO and accessibility?](https://stackoverflow.com/questions/665037/replacing-h1-text-with-a-logo-image-best-method-for-seo-and-accessibility)
 
 ### Continued development
 
