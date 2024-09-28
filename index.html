@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script defer src="./script.js"></script>
+
+    <title>Frontend Mentor | Tip calculator app</title>
+  </head>
+  <body>
+
+    <div class="container">
+      <header class="header">
+        <img class="logo" src="images/logo.svg" alt="Splitter logo">
+      </header>
+
+      <main class="main">
+        <form id="tip-calculator" class="with-sidebar" novalidate>
+          <div class="inputs sidebar">
+            <div class="input-stack">
+              <label for="bill">Bill</label>
+              <input id="bill" name="bill" type="number" step=".01" min="0.01" required placeholder="0"/>
+              <span aria-live="polite" id="bill-error" class="input-error"></span>
+            </div>
+            <fieldset class="tip-percentage-fieldset input-stack input-stack--l-gap">
+              <legend>Select Tip %</legend>
+              <label>Select Tip %</label>
+              <div class="flex-grid">
+                <div class="radiobox">
+                  <input type="radio" id="five-percent" name="tip-percentage" value="5" required/>
+                  <label for="five-percent">5%</label>
+                </div>
+                <div class="radiobox">
+                  <input type="radio" id="ten-percent" name="tip-percentage" value="10"/>
+                  <label for="ten-percent">10%</label>
+                </div>
+                <div class="radiobox">
+                  <input type="radio" id="fifteen-percent" name="tip-percentage" value="15"/>
+                  <label for="fifteen-percent">15%</label>
+                </div>
+                <div class="radiobox">
+                  <input type="radio" id="twenty-five-percent" name="tip-percentage" value="25"/>
+                  <label for="twenty-five-percent">25%</label>
+                </div>
+                <div class="radiobox">
+                  <input type="radio" id="fifty-percent" name="tip-percentage" value="50"/>
+                  <label for="fifty-percent">50%</label>
+                </div>
+                <div class="radiobox radiobox--custom">
+                  <input type="radio" id="custom-percent" name="tip-percentage" value=""/>
+                  <label for="fifty-percent">Custom</label>
+                  <input id="tip-percentage-custom" name="tip-percentage-custom" type="number" min="0" placeholder="Custom"/>
+                </div>
+              </div>
+              <span aria-live="polite" id="tip-percentage-error" class="input-error"></span>
+            </fieldset>
+            <div class="input-stack">
+              <label for="people">Number of People</label>
+              <input id="people" name="people" type="number" min="1" placeholder="0" required/>
+              <span aria-live="polite" id="people-error" class="input-error"></span>
+            </div>
+          </div>
+          <div class="results not-sidebar">
+            <fieldset class="result-fieldset" disabled>
+              <div class="result-value">
+                <label for="tip">Tip Amount <span>/ person</span></label>
+                <input id="tip" name="tip" type="text" placeholder="$0.00"/>
+              </div>
+              <div class="result-value">
+                <label for="total">Total <span>/ person</span></label>
+                <input id="total" name="total" type="text" placeholder="$0.00"/>
+              </div>
+            </fieldset>
+            <input type="reset" value="Reset" class="btn-reset" id="reset-btn" disabled/>
+          </div>
+        </form>
+      </main>
+    </div>
+  </body>
+</html>

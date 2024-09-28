@@ -1,0 +1,441 @@
+:root {
+  --ff-mono: "Space Mono", monospace;
+  --fw-normal: 700;
+
+  --fs-300: 0.8125rem; /* 13px */
+  --fs-400: 1rem; /* 16px */
+  --fs-500: 1.25rem; /* 20px */
+  --fs-600: 1.5rem; /* 24px */
+
+  /* Fluid typography and spacing */
+  /* Calculator - https://royalfig.github.io/fluid-typography-calculator/ */
+  /* Min vw = 30rem (480px) --> Max vw 60rem (960px) */
+
+  /* Fluid typography */
+  --fs-700: clamp(2rem, 1rem + 3.3333333333333335vw, 3rem); /* 32px -> 48px */
+
+  /* Fluid spacing */
+  /* Min vw = 30rem (480px) --> Max vw 60rem (960px) */
+  --sp-header-block-start: clamp(
+    3.125rem,
+    -3.9375rem + 23.541666666666668vw,
+    10.1875rem
+  ); /* 50px -> 163px */
+  --sp-header-block-end: clamp(
+    2.5rem,
+    -0.4375rem + 9.791666666666666vw,
+    5.4375rem
+  ); /* 40px -> 87px */
+  --sp-main-padding: clamp(
+    1.5rem,
+    1rem + 1.6666666666666667vw,
+    2rem
+  ); /* 24px -> 32px */
+  --sp-inputs-padding-block: clamp(
+    0rem,
+    -0.8125rem + 2.7083333333333335vw,
+    0.8125rem
+  ); /* 0px -> 13px */
+  --sp-inputs-padding-inline: clamp(
+    0.5rem,
+    0rem + 1.6666666666666667vw,
+    1rem
+  ); /* 8px -> 16px */
+  --sp-inputs-gap: clamp(
+    2rem,
+    1.5rem + 1.6666666666666667vw,
+    2.5rem
+  ); /* 32px -> 40px */
+  --sp-results-inline: clamp(
+    1.5rem,
+    0.5rem + 3.3333333333333335vw,
+    2.5rem
+  ); /* 24px -> 40px */
+  --sp-results-block-end: clamp(
+    1.5rem,
+    0.75rem + 2.5vw,
+    2.25rem
+  ); /* 24px -> 36px */
+  --sp-results-gap: clamp(
+    1.25rem,
+    0.875rem + 1.25vw,
+    1.625rem
+  ); /* 20px -> 26px */
+
+  /* Border radii */
+  --br-small: 0.3125rem; /* 5px */
+  --br-large: 0.9375rem; /* 15px */
+  --br-xl: 1.5625rem; /* 25px */
+
+  --clr-strong-cyan: hsl(172, 67%, 45%); /* Strong cyan #26C2AE */
+
+  --clr-neutral-900: hsl(183, 100%, 15%); /* Very dark cyan #00474B */
+  --clr-neutral-900-35: hsla(183, 100%, 15%, 0.35); /* Very dark cyan #00474B */
+  --clr-neutral-750: hsla(185, 38%, 50%, 0.2007); /* #4FA6AF */
+  --clr-neutral-725: hsla(183, 78%, 24%, 1); /* #0D686D */
+  --clr-neutral-700: hsl(186, 14%, 43%); /* Dark grayish cyan #5E7A7D */
+  --clr-neutral-600: hsl(180, 18%, 40%); /* #547878 */
+  --clr-neutral-500: hsl(183, 15%, 56%); /* Grayish cyan #7F9D9F*/
+  --clr-neutral-400: hsl(173, 61%, 77%); /* #9FE8DF */
+  --clr-neutral-300: hsl(185, 41%, 84%); /* Light grayish cyan #C5E4E7 */
+  --clr-neutral-150: hsl(185, 38%, 97%); /* ? #F3F9FA */
+  --clr-neutral-100: hsl(189, 41%, 97%); /* Very light grayish cyan */
+  --clr-white: hsl(0, 0%, 100%); /* White #FFFFFF */
+
+  --clr-icons: hsl(184, 19%, 68%); /* #9EBBBD */
+  --clr-errors: hsl(13, 70%, 61%); /* #E17457 */
+}
+
+/* Resets */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Global styling */
+
+body {
+  font-family: var(--ff-mono);
+  font-weight: var(--fw-normal);
+
+  color: var(--clr-neutral-700);
+  background-color: var(--clr-neutral-300);
+}
+
+/* Every Layout - The Grid (w/ Flex) */
+
+.flex-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* 16px */
+}
+
+.flex-grid > * {
+  /* flex: 1 1 30ch; */
+  flex: 1 1 6.5rem;
+}
+
+/* Every Layout - The Sidebar */
+
+.with-sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem; /* 32px */
+}
+
+.sidebar {
+  /* ↓ The width when the sidebar _is_ a sidebar */
+  flex-basis: calc(23.6875rem + 2rem); /* 379px + 2 * inputs-padding-inline */
+  flex-grow: 1;
+}
+
+.not-sidebar {
+  /* ↓ Grow from nothing */
+  flex-basis: 0;
+  flex-grow: 999999;
+  /* ↓ Wrap when the elements are of equal width */
+  min-inline-size: 40%;
+}
+
+/* Every Layout - (end) */
+
+.container {
+  max-width: 59.5rem; /* 920px + 2rem */
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  container-type: inline-size;
+  container-name: primary-container;
+}
+
+/* .container :last-child {
+  flex-grow: 1;
+} */
+
+.header {
+  padding-block-start: 3.125rem;
+  padding-block-end: 2.5rem;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto;
+  width: 86.66px;
+}
+
+.main {
+  padding: 2rem var(--sp-main-padding);
+  border-top-left-radius: var(--br-xl);
+  border-top-right-radius: var(--br-xl);
+  background-color: var(--clr-white);
+  flex-grow: 1;
+}
+
+.inputs {
+  padding-block: var(--sp-inputs-padding-block);
+  padding-inline: var(--sp-inputs-padding-inline);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-inputs-gap);
+}
+
+.results {
+  padding-block-start: 2.375rem; /* 38px */
+  padding-block-end: var(--sp-results-block-end); /* 24px -> 36px */
+  padding-inline: var(--sp-results-inline);
+  border-radius: var(--br-large);
+  color: var(--clr-white);
+  background-color: var(--clr-neutral-900);
+
+  display: grid;
+  align-content: space-between;
+  gap: 1.25rem; /* 20px */
+}
+
+.tip-percentage-fieldset {
+  border: none;
+}
+
+.input-stack {
+  display: grid;
+  gap: 0.375rem; /* 6px */
+  grid-template-columns: 6fr 4fr;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.input-stack legend {
+  display: none;
+}
+
+.input-stack--l-gap {
+  gap: 1rem; /* 16px */
+}
+
+/* Form error messages */
+
+.input-error {
+  width: 100%;
+  grid-row-start: 1;
+  grid-column: 2;
+
+  font-size: var(--fs-200);
+  font-weight: var(--fw-bold);
+  color: var(--clr-errors);
+  text-align: right;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="radio"] {
+  appearance: none;
+  box-sizing: border-box;
+  width: 100%;
+
+  outline: none;
+  border: none;
+
+  color: var(--clr-neutral-900);
+  font-family: inherit;
+  font-size: var(--fs-600);
+  font-weight: inherit;
+}
+
+.input-stack .flex-grid,
+.input-stack > input[type="text"],
+.input-stack > input[type="number"] {
+  grid-row-start: 2;
+  grid-column: 1 / 3;
+}
+
+input[type="number"] {
+  background-color: var(--clr-neutral-150);
+  border-radius: var(--br-small);
+  padding: 0.375rem 1.125rem; /* 6px 18px */
+  text-align: end;
+}
+
+input[type="number"]::placeholder {
+  color: var(--clr-neutral-900-35);
+}
+
+#tip-percentage-custom::placeholder {
+  color: var(--clr-neutral-600);
+}
+
+input#bill,
+input#people {
+  background-repeat: no-repeat;
+  background-position: left 1.125rem top 50%;
+}
+
+input#bill {
+  background-image: url("images/icon-dollar.svg");
+}
+
+input#people {
+  background-image: url("images/icon-person.svg");
+}
+
+.result-fieldset {
+  border: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-results-gap); /* 20px -> 26px */
+}
+
+.result-value {
+  display: flex;
+  align-items: center;
+}
+
+.result-value > label {
+  flex: 1 0 max-content;
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+}
+
+.result-value > label > * {
+  width: max-content;
+}
+
+.result-value > label > span {
+  font-size: var(--fs-300);
+  color: var(--clr-neutral-500);
+}
+
+.result-value > input[type="text"] {
+  font-size: var(--fs-700);
+  background-color: transparent;
+  color: var(--clr-strong-cyan);
+  text-align: end;
+}
+
+.result-value > input[type="text"]::placeholder {
+  color: var(--clr-strong-cyan);
+}
+
+.radiobox {
+  position: relative;
+  height: 3rem; /* 48px */
+}
+
+input[type="radio"] {
+  visibility: hidden;
+  height: 0;
+  width: 0;
+}
+
+input[type="radio"] + label,
+.radiobox--custom > input[type="number"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="radio"] + label {
+  font-size: var(--fs-600);
+  color: var(--clr-white);
+  background-color: var(--clr-neutral-900);
+  border-radius: var(--br-small);
+}
+
+input[type="radio"]:checked + label {
+  color: var(--clr-neutral-900);
+  background: var(--clr-strong-cyan);
+}
+
+input[type="radio"] + label:hover,
+input[type="radio"] + label:focus,
+input[type="radio"] + label:active,
+input[type="radio"]:checked + label:hover,
+input[type="radio"]:checked + label:focus,
+input[type="radio"]:checked + label:active {
+  color: var(--clr-neutral-900);
+  background-color: var(--clr-neutral-400);
+}
+
+.radiobox--custom > input[type="radio"] + label {
+  display: none;
+}
+
+.btn-reset {
+  appearance: none;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: var(--br-small);
+  margin-block-start: 1rem;
+  padding-block: 0.5rem;
+  font-family: inherit;
+  font-weight: var(--fw-normal);
+  text-transform: uppercase;
+  font-size: var(--fs-500);
+  color: var(--clr-neutral-900);
+  background-color: var(--clr-strong-cyan);
+  cursor: pointer;
+}
+
+.btn-reset:hover,
+.btn-reset:focus,
+.btn-reset:active {
+  background-color: var(--clr-neutral-400);
+  outline: none;
+}
+
+.btn-reset:disabled {
+  background-color: var(--clr-neutral-725);
+  cursor: unset;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--clr-strong-cyan);
+}
+
+input[type="text"]:not(:placeholder-shown):not(:focus):invalid,
+input[type="number"]:not(:placeholder-shown):not(:focus):invalid {
+  //color: var(--clr-errors);
+  //background-color: var(--clr-errors);
+  box-shadow: 0 0 0 2px var(--clr-errors);
+}
+
+/* 
+
+Looking for some condition that will indicate that the viewport height extends beyond the bottom of the main container, and so the rounded borders should be shown. (Or maybe when the sidebar changes from one columne to two?)
+
+Possibly other similar changes should be made as well. For example: 
+- adding inline padding to the main container to separate it from the sides of the viewport
+
+*/
+
+@container primary-container (width > 40rem) {
+  .header {
+    padding-block-start: var(--sp-header-block-start);
+    padding-block-end: var(--sp-header-block-end);
+  }
+
+  .main {
+    border-bottom-left-radius: var(--br-xl);
+    border-bottom-right-radius: var(--br-xl);
+    flex-grow: 0;
+    margin-inline: 1rem;
+    margin-block-end: 1rem;
+    box-shadow: 0px 32px 43px 0 var(--clr-neutral-750);
+  }
+}
