@@ -265,8 +265,18 @@ input[type="number"] {
   text-align: end;
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 #tip-percentage-custom {
-  padding-inline: 0.875rem;
+  padding-inline: 0.75rem;
 }
 
 input[type="number"]::placeholder {
